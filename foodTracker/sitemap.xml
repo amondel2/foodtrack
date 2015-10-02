@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+   <url>
+
+      <loc>http://wedding.mondelblatt.com/</loc>
+
+      <lastmod>2014-03-21</lastmod>
+
+      <changefreq>weekly</changefreq>
+
+      <priority>1.0</priority>
+
+   </url>
+
+   <url>
+
+      <loc>http://wedding.mondelblatt.com/how_we_met.php</loc>
+
+      <changefreq>monthly</changefreq>
+	  
+	   <priority>0.3</priority>
+
+   </url>
+	<url>
+
+      <loc>http://wedding.mondelblatt.com/photos.php</loc>
+
+      <lastmod>2014-02-16</lastmod>
+
+      <changefreq>weekly</changefreq>
+
+   </url>
+   <url>
+
+      <loc>http://wedding.mondelblatt.com/events.php</loc>
+
+      <lastmod>2014-03-21</lastmod>
+
+      <changefreq>weekly</changefreq>
+
+   </url>
+   <url>
+
+      <loc>http://wedding.mondelblatt.com/directions.php</loc>
+
+      <lastmod>2014-03-21</lastmod>
+
+      <changefreq>weekly</changefreq>
+
+   </url>
+
+   <url>
+
+      <loc>http://wedding.mondelblatt.com/guestbook.php</loc>
+
+      <lastmod>2014-02-16T18:00:15+00:00</lastmod>
+	  
+	  <changefreq>hourly</changefreq>
+
+   </url>
+
+   <url>
+
+      <loc>http://wedding.mondelblatt.com/contact_us.php</loc>
+
+      <lastmod>2014-02-16</lastmod>
+	  <changefreq>yearly</changefreq>
+	   <priority>0.7</priority>
+
+   </url>
+
+</urlset>
