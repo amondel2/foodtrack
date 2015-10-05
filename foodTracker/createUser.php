@@ -50,14 +50,6 @@ if($_REQUEST['inputConPassword'] != $_REQUEST['inputPassword']){
 $_REQUEST['inputPassword'] = sha1(strip_tags(trim($_REQUEST['inputPassword'])));
 
 
-$sql = "SELECT * from wl_challenage where id='" . $_REQUEST ['wtc'] . "'";
-$rs = $db_connection->db_query ( $sql );
-if ($rs === false) {
-	die ( "bad sql" . pg_last_error ( $db_connection->get_pg_resource () ) );
-}
-$output = '';
-$row = pg_fetch_assoc( $rs );
-$wtcId = $row['id'];
 
 
 $sql = "Insert into wl_users (last_name,first_name,user_id,email_address,password,sec_question,sec_ans)

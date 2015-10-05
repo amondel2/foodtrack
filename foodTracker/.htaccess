@@ -1,6 +1,0 @@
-AuthType	basic
-AuthName	"Secured area"
-AuthUserFile	/hsphere/local/home/a995847/.htmaster/.ok_user_xml
-Require	valid-user
-
-

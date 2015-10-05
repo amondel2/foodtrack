@@ -45,21 +45,8 @@ get_header_html()
             <label class="sr-only" for="secans">Security Answer:</label>
             <input type="text" class="form-control" id="secans" name="secans" placeholder="Security Answer" min="3" max="100" required>
         	</div>
-			<div class="form-group">
-				<label for="wtc">Choose Challange:</label>
-				<select name="wtc" id="wtc" class="form-control">',
-					get_active_changlanges()	
-				,'</select>
-			</div>
-			<div class="form-group">
-            <label class="sr-only" for="dollars">Intial Investment:</label>
-            <input type="number" class="form-control" id="dollars" name="dollars" placeholder="Invest Dollars" min="5" max="1000"  step="5" required>
-        	</div>
-			<div class="form-group">
-            <label  class="sr-only" for="initWeight">Intial Weight:</label>
-            <input type="number" class="form-control" id="initWeight" name="initWeight" placeholder="Invest Weight" min="80" max="400" step="any" required>
-        	</div>
-		
+
+
 		<button type="submit" class="btn btn-primary">Create User</button>
 	</form>
 ';

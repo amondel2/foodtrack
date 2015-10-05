@@ -22,8 +22,8 @@ echo '
 </head><body>',
 	get_header_html()
 	,'
-		<h1>Welcome To The Weight Loss Challenge</h1>
-		<p> Get Started By Logging in Checking in to your profile and competation</p>			
+		<h1>Welcome To The Food Tracker</h1>
+		<p> Get Started By Logging in Checking in to your profile and competation</p>
 	';
 display_footer();
 ?>

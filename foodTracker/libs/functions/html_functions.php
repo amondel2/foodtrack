@@ -18,12 +18,12 @@
  *
  **************************************************************************/
 require_once('libs/classes/pg_database.php');
-function display_html_start($keywords = 'Aaron Mondelblatt, Mandi Keller, Mandi Mondelblatt, Wedding, Marriage',
-							$description = 'Aaron and Mandi Mondelblatt\'s Wedding Website')
+function display_html_start($keywords = 'Food Tracker',
+							$description = 'Food Tracker')
 {
 	header( 'Expires: ' . gmdate( 'D, d M Y H:i:s', mktime(date('h'),date('i'),date('s'),date('m') + 4,date('d'),date('Y')) ) . ' GMT' );
 	header( 'Last-Modified: Fri, 7 Feb 2014 05:00:00 GMT' );
-	$title = 'Aaron Mondelblatt &amp; Mandi Keller Wedding - '. htmlspecialchars(ucwords(str_replace('_',' ',basename($_SERVER['SCRIPT_FILENAME'],'.php'))),ENT_QUOTES);
+	$title = 'Food Tracker - '. htmlspecialchars(ucwords(str_replace('_',' ',basename($_SERVER['SCRIPT_FILENAME'],'.php'))),ENT_QUOTES);
 	echo '<!DOCTYPE html>
 				<html lang="en" ng-app>
 				<head>
@@ -41,14 +41,14 @@ function display_html_start($keywords = 'Aaron Mondelblatt, Mandi Keller, Mandi 
 					<link rel="Stylesheet" href="', WEB_BASE_COMMON, 'css/jquery-ui.css" type="text/css" />
 					<link rel="Stylesheet" href="', WEB_BASE_COMMON, 'css/jquery-ui.structure.css" type="text/css" />
 					<link rel="Stylesheet" href="', WEB_BASE_COMMON, 'css/jquery-ui.theme.css" type="text/css" />
-
+                    <link rel="Stylesheet" href="', WEB_BASE_COMMON, 'css/jquery-ui-timestamp.css" type="text/css" />
 					<link rel="Stylesheet" href="', WEB_BASE_COMMON, 'css/jquery.lightbox-0.5.css" type="text/css" />
 					<script language="JavaScript" type="text/javascript" src="', WEB_BASE_COMMON, 'scripts/jquery.js"></script>
 					<script language="JavaScript" type="text/javascript" src="', WEB_BASE_COMMON, 'scripts/jquery-ui.js"> </script>
 					<script language="JavaScript" type="text/javascript" src="', WEB_BASE_COMMON, 'scripts/bootstrap.js"></script>
 					<script language="JavaScript" type="text/javascript" src="', WEB_BASE_COMMON, 'scripts/angular.js"></script>
 					<script language="JavaScript" type="text/javascript" src="', WEB_BASE_COMMON, 'scripts/jquery.lightbox-0.5.js"></script>
-
+                    <script language="JavaScript" type="text/javascript" src="', WEB_BASE_COMMON, 'scripts/jquery-ui-timepicker-addon.min.js"></script>
 					<!--[if lt IE 8]>
 					<script type="text/javascript">
 					   	alert("This is an old browser. I am redirecting you for the sake of the internet!");
@@ -125,23 +125,5 @@ return  '<nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-f
 </nav>';
 }
 
-function get_active_changlanges() {
-	$db_connection = new pg_database_class();
-	if ( false === $db_connection->open_connection(FUNCTION_LIBRARY_POSTGRES_DB_NAME, FUNCTION_LIBRARY_POSTGRES_USER,
-			FUNCTION_LIBRARY_POSTGRESS_PASSWORD)) {
-				trigger_error('Database DEAD...' . $db_connection->get_last_error_message());
-				exit();
-			}
-			$sql = "SELECT * from wl_challenage where end_date > 'now' order by start_date DESC";
-			$rs = $db_connection->db_query($sql);
-			if($rs === false) {
-				die("bad sql" . pg_last_error($db_connection->get_pg_resource()));
-			}
-			$output = '';
-			while( $row = pg_fetch_assoc($rs) ) 	{
-				$output .= "<option value='" . $row['id'] . "'>" . htmlspecialchars($row['name'],ENT_QUOTES). '</option>';
-			}
-    return $output;
-}
 
 ?>
