@@ -62,7 +62,7 @@ if($_REQUEST && isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'UpdateWee
         $row5 = pg_fetch_assoc( $rs5 );
         $sql6  = "Select id from wl_day where wl_week_id ={$row5['id']} and date = to_date('$sql_date','MM/DD/YYYY')";
         $rs6 = $db_connection->db_query ( $sql6 );
-        if( $rs6 && pg_affected_rows($rs6) > 0) {
+        if( $rs6 && pg_num_rows($rs6) > 0) {
          $row6 = pg_fetch_assoc( $rs6 );
 
            $sql = "Insert into wl_item_type (wl_day_id,time,description,amount,type)
