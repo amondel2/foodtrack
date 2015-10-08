@@ -56,7 +56,7 @@ if($_REQUEST && isset($_REQUEST['action']) &&  $_REQUEST['action'] == 'UpdateWee
     $sql5  = "Select id from wl_week where id ={$_REQUEST['uxref']}";
     $rs5 = $db_connection->db_query ( $sql5 );
 
-   if( $rs5 === false || pg_affected_rows($rs5) == 0) {
+   if( $rs5 && pg_num_rows($rs5) > 0) {
         $timestamp = strtotime($_REQUEST['date']);
         $sql_date = date ('m/d/Y',$timestamp);
         $row5 = pg_fetch_assoc( $rs5 );
@@ -127,7 +127,8 @@ while($row = pg_fetch_assoc( $rs )) {
     }
 
 	$tbody .= "<tr><td style='cursor:hand;cursor:pointer;' uuid='{$row['id']}' dcal='{$row['calorie_goal']}' dactive='{$row['activity_mins']}'>Update Items</td><td>{$row['week_number']}</td><td>{$row['start_date']}</td><td>{$row['end_date']}</td><td>{$row['calorie_goal']}</td><td>{$row['activity_mins']}</td><td>{$row2['cal']}</td><td>{$row3['mins']}</td>";
-    $tbody .= '<td><span title="delete" class="ui-icon ui-icon-trash" style="float: left;" name="delete"></span><span style="float: left;" title="Add" class="ui-icon ui-icon-plus" name="add"></span></td></tr>';
+    $tbody .= '<td><span title="delete" class="ui-icon ui-icon-trash" style="float: left;" name="delete"></span><span style="float: left;" title="Add" class="ui-icon ui-icon-plus" name="add"></span>
+                <span style="float: left;" title="More Detials" class="ui-icon ui-icon-zoomin" name="mroe Detials"></span></td></tr>';
 }
 
 display_html_start();
@@ -146,7 +147,7 @@ echo '
                     <th>Week Number</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>Weekly Calorie Goal</th>
+                    <th>Daily Calorie Goal</th>
 					<th>Weekky Activity Goal</th>
 					<th>Calories So Far</th>
                     <th>Activities So Far</th>

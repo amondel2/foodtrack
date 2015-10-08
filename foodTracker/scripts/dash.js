@@ -24,7 +24,7 @@ var wadd = function() {
 				window.location.reload(true);
 			}}
 		,"json").always(function() {
-			dialog.dialog( "close" );
+			dialog_add.dialog( "close" );
 		});
 	}
 };
@@ -39,7 +39,7 @@ var ditem = function() {
 				window.location.reload(true);
 			}}
 		,"json").always(function() {
-			dialog.dialog( "close" );
+			dialog_item.dialog( "close" );
 		});
 	}
 };
@@ -102,7 +102,11 @@ $(document).ready(function(){
 			$("#type1").css({"display":"none"});
 			$("#type0").css({"display":"inline"});
 		}
-	})
+	});
+
+	$(".ui-icon-zoomin").on('click',function(){
+		window.location.href= "week_view.php?id=" + $(this).parent().parent().children('td').first().attr('uuid');
+	});
 
 	$("tr td:first-child").on('click',function(){
 		$("#uxref").val($(this).attr('uuid'));
